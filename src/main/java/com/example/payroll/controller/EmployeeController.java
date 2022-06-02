@@ -2,7 +2,7 @@ package com.example.payroll.controller;
 
 import com.example.payroll.assembler.EmployeeModelAssembler;
 import com.example.payroll.model.Employee;
-import com.example.payroll.service.EmployeeService;
+import com.example.payroll.service.implementations.EmployeeServiceImpl;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -19,11 +19,11 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RequestMapping("/employees")
 public class EmployeeController {
 
-    private final EmployeeService service;
+    private final EmployeeServiceImpl service;
 
     private final EmployeeModelAssembler assembler;
 
-    EmployeeController(EmployeeService service, EmployeeModelAssembler assembler) {
+    EmployeeController(EmployeeServiceImpl service, EmployeeModelAssembler assembler) {
         this.service = service;
         this.assembler = assembler;
     }

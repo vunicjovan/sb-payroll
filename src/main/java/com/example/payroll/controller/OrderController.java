@@ -3,18 +3,13 @@ package com.example.payroll.controller;
 import com.example.payroll.assembler.OrderModelAssembler;
 import com.example.payroll.enums.Status;
 import com.example.payroll.model.Order;
-import com.example.payroll.service.OrderService;
+import com.example.payroll.service.implementations.OrderServiceImpl;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.MediaTypes;
-import org.springframework.hateoas.mediatype.problem.Problem;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
@@ -24,11 +19,11 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RequestMapping("/orders")
 public class OrderController {
 
-    private final OrderService service;
+    private final OrderServiceImpl service;
 
     private final OrderModelAssembler assembler;
 
-    public OrderController(OrderService service, OrderModelAssembler assembler) {
+    public OrderController(OrderServiceImpl service, OrderModelAssembler assembler) {
         this.service = service;
         this.assembler = assembler;
     }

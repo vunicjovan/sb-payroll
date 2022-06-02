@@ -1,4 +1,4 @@
-package com.example.payroll.db;
+package com.example.payroll.config;
 
 import com.example.payroll.enums.Status;
 import com.example.payroll.model.Employee;
@@ -10,11 +10,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
-public class LoadDatabase {
+@EnableScheduling
+public class SpringConfig {
 
-    private static final Logger logger = LoggerFactory.getLogger(LoadDatabase.class);
+    private static final Logger logger = LoggerFactory.getLogger(SpringConfig.class);
 
     @Bean
     CommandLineRunner initDatabase(EmployeeRepository employeeRepository, OrderRepository orderRepository) {
